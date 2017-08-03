@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<!-- 配置全局初始化参数，所有Servlet都可以 访问 -->
+	<context-param>
+		<param-name>hobby</param-name>
+		<param-value>唱儿歌</param-value>	
+	</context-param>
+	
+	<!-- 用户 通过 /init 访问Servlet -->
+	<servlet>
+		<servlet-name>InitServlet</servlet-name>
+		<servlet-class>cn.itcast.servlet.InitServlet</servlet-class>
+		<!-- 配置 Servlet在服务器启动时 进行加载 -->
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>InitServlet</servlet-name>
+		<url-pattern>/init</url-pattern>
+		<url-pattern>/init2</url-pattern>
+	</servlet-mapping>
+	
+  <!-- 为 HelloServlet 配置 浏览器可以访问虚拟 路径 -->	
+	<servlet>
+		<!-- 为 Servlet程序  命名 -->
+		<servlet-name>HelloServlet</servlet-name>
+		<!-- Servlet全路径 ： 包名.类名 -->
+		<servlet-class>cn.itcast.servlet.HelloServlet</servlet-class>
+	</servlet>
+  <servlet>
+    <servlet-name>HelloServlet2</servlet-name>
+    <servlet-class>cn.itcast.servlet.HelloServlet2</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>HelloServlet3</servlet-name>
+    <servlet-class>cn.itcast.servlet.HelloServlet3</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ChengfabiaoServlet</servlet-name>
+    <servlet-class>cn.itcast.servlet.ChengfabiaoServlet</servlet-class>
+  </servlet>
+  <!-- 在Servlet标签内部 配置初始化参数 -->
+  <servlet>
+    <servlet-name>ConfigServlet</servlet-name>
+    <servlet-class>cn.itcast.servlet.ConfigServlet</servlet-class>
+    <!-- 通过 init-param -->
+    <init-param>
+    	<param-name>itcast</param-name>
+    	<param-value>传智播客</param-value>
+    </init-param>
+    <init-param>
+    	<param-name>address</param-name>
+    	<param-value>软件园</param-value>
+    </init-param>
+  </servlet>
+  <servlet>
+    <servlet-name>ContextServlet</servlet-name>
+    <servlet-class>cn.itcast.servlet.ContextServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CountServlet</servlet-name>
+    <servlet-class>cn.itcast.servlet.CountServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CountShowServlet</servlet-name>
+    <servlet-class>cn.itcast.servlet.CountShowServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AServlet</servlet-name>
+    <servlet-class>cn.itcast.servlet.AServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>BServlet</servlet-name>
+    <servlet-class>cn.itcast.servlet.BServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>LetterCountServlet</servlet-name>
+    <servlet-class>cn.itcast.servlet.LetterCountServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>LetterResultServlet</servlet-name>
+    <servlet-class>cn.itcast.servlet.LetterResultServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ReadFileServlet</servlet-name>
+    <servlet-class>cn.itcast.servlet.ReadFileServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DefaultServlet</servlet-name>
+    <servlet-class>cn.itcast.servlet.DefaultServlet</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<servlet-mapping>
+		<!-- 为Servlet程序 指定 浏览器访问 虚拟路径 -->
+		<servlet-name>HelloServlet</servlet-name>
+		<!-- 用户 在 浏览器通过/hello 访问Servlet -->
+		<url-pattern>/hello</url-pattern>
+	</servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>HelloServlet2</servlet-name>
+    <url-pattern>/hello2</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>HelloServlet3</servlet-name>
+    <url-pattern>/hello3</url-pattern>
+    <url-pattern>/abc/*</url-pattern>
+    <!-- 扩展名 匹配 必须不能 用 / 开始 -->
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ChengfabiaoServlet</servlet-name>
+    <!-- 客户端绝对路径 /day05/chengfabiao -->
+    <url-pattern>/chengfabiao</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ConfigServlet</servlet-name>
+    <url-pattern>/config</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ContextServlet</servlet-name>
+    <url-pattern>/context</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CountServlet</servlet-name>
+    <url-pattern>/count</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CountShowServlet</servlet-name>
+    <url-pattern>/countshow</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AServlet</servlet-name>
+    <url-pattern>/a</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>BServlet</servlet-name>
+    <url-pattern>/b</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LetterCountServlet</servlet-name>
+    <url-pattern>/servlet/lettercount</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LetterResultServlet</servlet-name>
+    <url-pattern>/servlet/result</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ReadFileServlet</servlet-name>
+    <url-pattern>/readfile</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DefaultServlet</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+	
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
